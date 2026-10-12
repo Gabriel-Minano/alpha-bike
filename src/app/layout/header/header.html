@@ -1,0 +1,58 @@
+<header class="header">
+  <div class="header__inner">
+    <a class="brand" routerLink="/" aria-label="Alpha Bike - Ir al inicio" (click)="closeMenu()">
+      <img class="brand__logo" src="images/logo.png" alt="" width="64" height="64" />
+      <span class="brand__name">ALPHA BIKE</span>
+    </a>
+
+    <button
+      class="header__toggle"
+      type="button"
+      aria-controls="main-menu"
+      [attr.aria-expanded]="menuOpen()"
+      [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+      (click)="toggleMenu()"
+    >
+      <app-icon [name]="menuOpen() ? 'x' : 'menu'" [size]="26" />
+    </button>
+
+    <div id="main-menu" class="header__panel" [class.is-open]="menuOpen()">
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav__list">
+          @for (item of navItems; track item.path) {
+            <li>
+              <a
+                class="nav__link"
+                [routerLink]="item.path"
+                routerLinkActive="is-active"
+                ariaCurrentWhenActive="page"
+                [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+                (click)="closeMenu()"
+              >
+                {{ item.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+
+      <form class="search" role="search" (submit)="submitSearch($event)">
+        <input
+          class="search__input"
+          type="search"
+          name="q"
+          placeholder="Buscar"
+          autocomplete="off"
+          aria-label="Buscar en el sitio"
+          [value]="query()"
+          (input)="onSearchInput($event)"
+        />
+        @if (query()) {
+          <button class="search__clear" type="button" aria-label="Borrar búsqueda" (click)="clearSearch()">
+            <app-icon name="x" [size]="18" [strokeWidth]="2.5" />
+          </button>
+        }
+      </form>
+    </div>
+  </div>
+</header>

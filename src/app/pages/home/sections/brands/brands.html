@@ -1,0 +1,11 @@
+<section class="brands" aria-labelledby="brands-title">
+  <h2 id="brands-title" class="section-title">MARCAS</h2>
+
+  <app-carousel [items]="brands" label="Marcas que trabajamos" arrows="triangle">
+    <ng-template let-brand>
+      <article class="brand-card">
+        <img [src]="brand.logo" [alt]="brand.name" loading="lazy" />
+      </article>
+    </ng-template>
+  </app-carousel>
+</section>

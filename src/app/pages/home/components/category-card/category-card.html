@@ -1,0 +1,14 @@
+<article class="card">
+  <div class="card__media">
+    <img [src]="category().image" [alt]="category().alt" loading="lazy" />
+  </div>
+
+  <div class="card__footer">
+    <div>
+      <p class="card__label">{{ category().label }}</p>
+      <h3 class="card__title">Explora</h3>
+    </div>
+
+    <a class="btn btn--accent" [routerLink]="['/bicicletas', category().slug]">Ver más</a>
+  </div>
+</article>

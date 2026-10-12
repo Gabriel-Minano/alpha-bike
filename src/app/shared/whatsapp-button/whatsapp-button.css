@@ -1,0 +1,25 @@
+:host {
+  position: fixed;
+  right: clamp(0.75rem, 2vw, 1.75rem);
+  bottom: clamp(0.75rem, 2vw, 1.75rem);
+  z-index: 60;
+}
+
+.wa {
+  display: block;
+  line-height: 0;
+  border-radius: 50%;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.28));
+  transition: transform 0.15s ease;
+}
+
+.wa:hover {
+  transform: scale(1.06);
+}
+
+@media (max-width: 560px) {
+  .wa svg {
+    width: 60px;
+    height: 60px;
+  }
+}

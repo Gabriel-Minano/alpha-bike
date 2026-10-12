@@ -1,0 +1,27 @@
+<div class="carousel" role="region" aria-roledescription="carrusel" [attr.aria-label]="label()">
+  <button class="carousel__arrow" type="button" aria-label="Anterior" (click)="go(-1)">
+    <app-icon
+      [name]="arrows() === 'circle' ? 'arrow-left-circle' : 'triangle-left'"
+      [size]="arrows() === 'circle' ? 48 : 36"
+      [strokeWidth]="arrows() === 'circle' ? 1.6 : 2"
+    />
+  </button>
+
+  <div class="carousel__viewport">
+    <ul #track class="carousel__track">
+      @for (item of items(); track $index) {
+        <li class="carousel__slide">
+          <ng-container [ngTemplateOutlet]="slideTemplate()" [ngTemplateOutletContext]="{ $implicit: item }" />
+        </li>
+      }
+    </ul>
+  </div>
+
+  <button class="carousel__arrow" type="button" aria-label="Siguiente" (click)="go(1)">
+    <app-icon
+      [name]="arrows() === 'circle' ? 'arrow-right-circle' : 'triangle-right'"
+      [size]="arrows() === 'circle' ? 48 : 36"
+      [strokeWidth]="arrows() === 'circle' ? 1.6 : 2"
+    />
+  </button>
+</div>

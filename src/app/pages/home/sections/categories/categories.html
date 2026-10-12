@@ -1,0 +1,9 @@
+<section class="categories" aria-labelledby="categories-title">
+  <h2 id="categories-title" class="section-title">Nuestras Categorías</h2>
+
+  <app-carousel [items]="categories" label="Categorías de bicicletas" arrows="circle">
+    <ng-template let-category>
+      <app-category-card [category]="category" />
+    </ng-template>
+  </app-carousel>
+</section>

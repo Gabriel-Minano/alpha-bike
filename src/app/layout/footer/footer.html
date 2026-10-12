@@ -1,0 +1,68 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <!-- Marca y contacto -->
+      <section class="footer__brand" aria-label="Alpha Bike">
+        <a class="footer__logo" routerLink="/">
+          <app-icon name="bike" [size]="28" />
+          <span>ALPHA BIKE</span>
+        </a>
+        <p class="footer__tagline">Tu tienda de confianza para todas tus necesidades de ciclismo.</p>
+
+        <address class="footer__contact">
+          <p>
+            <app-icon name="map-pin" [size]="22" />
+            <span>{{ address }}</span>
+          </p>
+          <p>
+            <app-icon name="phone" [size]="22" />
+            <a [href]="phoneHref">{{ phone }}</a>
+          </p>
+        </address>
+      </section>
+
+      <!-- Productos -->
+      <nav aria-labelledby="footer-products">
+        <h3 id="footer-products" class="footer__heading">Productos</h3>
+        <ul class="footer__list">
+          @for (link of products; track link.label) {
+            <li><a [routerLink]="link.commands">{{ link.label }}</a></li>
+          }
+        </ul>
+      </nav>
+
+      <!-- Servicios -->
+      <nav aria-labelledby="footer-services">
+        <h3 id="footer-services" class="footer__heading">Servicios</h3>
+        <ul class="footer__list">
+          @for (link of services; track link.label) {
+            <li><a [routerLink]="link.commands">{{ link.label }}</a></li>
+          }
+        </ul>
+      </nav>
+
+      <!-- Horarios y redes -->
+      <section aria-labelledby="footer-hours">
+        <h3 id="footer-hours" class="footer__heading">Horarios</h3>
+        <div class="footer__hours">
+          @for (line of schedule; track line) {
+            <p>{{ line }}</p>
+          }
+        </div>
+
+        <h3 class="footer__heading footer__heading--social">Síguenos</h3>
+        <ul class="footer__social">
+          @for (item of social; track item.label) {
+            <li>
+              <a [href]="item.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="item.label">
+                <app-icon [name]="item.icon" [size]="22" [strokeWidth]="1.75" />
+              </a>
+            </li>
+          }
+        </ul>
+      </section>
+    </div>
+
+    <p class="footer__copy">© {{ year }} ALPHA BIKE. Todos los derechos reservados.</p>
+  </div>
+</footer>

@@ -1,0 +1,120 @@
+:host {
+  display: block;
+}
+
+.footer {
+  background: var(--color-footer);
+  color: #d4d4dc;
+  padding: 2.75rem clamp(1rem, 7.7vw, 7.7rem) 2rem;
+}
+
+.footer__inner {
+  max-width: 1390px;
+  margin-inline: auto;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 2.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+a:hover {
+  color: #fff;
+}
+
+/* ---------- Marca ---------- */
+.footer__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.footer__tagline {
+  margin: 1.1rem 0 1.5rem;
+  font-size: 1.0625rem;
+}
+
+.footer__contact {
+  display: grid;
+  gap: 0.9rem;
+  font-style: normal;
+}
+
+.footer__contact p {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-size: 1.0625rem;
+}
+
+/* ---------- Columnas ---------- */
+.footer__heading {
+  margin: 0 0 1.1rem;
+  color: #fff;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.footer__heading--social {
+  margin-top: 1.75rem;
+}
+
+.footer__list {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.0625rem;
+}
+
+.footer__hours p {
+  margin: 0 0 0.35rem;
+  font-size: 1.0625rem;
+}
+
+.footer__social {
+  display: flex;
+  gap: 1.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__social a {
+  display: inline-flex;
+  color: #a1a1aa;
+}
+
+.footer__social a:hover {
+  color: #fff;
+}
+
+/* ---------- Copyright ---------- */
+.footer__copy {
+  margin: 1.75rem 0 0;
+  text-align: center;
+  font-size: 1.0625rem;
+}
+
+@media (max-width: 1000px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+}
